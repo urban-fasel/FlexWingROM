@@ -74,7 +74,7 @@ runROM = false;             % generate reduced order models and compare differen
  
 airfoil = 'NACA0012'; % 'NACA6418';       % choose airfoil: coordinates are loaded from file in folder 'airfoils' 
 morphingWing = false; % true;       % set true for wing design with compliant ribs -> morphing for roll and load control
-plt = true;                % plot
+plt = false;                % plot
 
 % define the main wing design and simulation parameters
 if generateWing
