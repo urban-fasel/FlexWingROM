@@ -135,20 +135,26 @@ for ii = 1:length(kRange)
             break
         end
     end
-    phase(ii) = -min([abs((maxrx-maxqsx)/period * 360) abs((maxrx-maxqsx)/period*360 - 180)]);    
+    phase(ii) = -(maxrx-maxqsx)/period * 360;
     amplitude(ii) = abs(maxry/maxqsy);
 end
 
 
 %% Theodorsen function
 
-% Bessel function
 for ii = 1:length(kRange)
+    % Bessel function
     C_theod(ii) = (besselh(1,2,kRange(ii)))./...
         (besselh(1,2,kRange(ii))...
         +1i*besselh(0,2,kRange(ii)));
-    phaseTheodorsen(ii) = angle(C_theod(ii))*180/pi;
-    amplitudeTheodorsen(ii) = abs(C_theod(ii));
+%     phaseTheodorsen(ii) = angle(C_theod(ii))*180/pi;
+%     amplitudeTheodorsen(ii) = abs(C_theod(ii));
+    
+    rotAxis = 0.5; % pitch around half chord
+    a = -1+rotAxis*2;
+    ARG = (-pi/4)*a*(- kRange(ii)^2) + (pi/2)*(1i*kRange(ii)) + 2*pi*C_theod(ii) + pi*(.5-a)*(1i*kRange(ii)).*C_theod(ii);
+    amplitudeTheodorsen(ii) = abs(ARG)/(2*pi);
+    phaseTheodorsen(ii) = angle(ARG)*180/pi;
 end
 
 % plot
