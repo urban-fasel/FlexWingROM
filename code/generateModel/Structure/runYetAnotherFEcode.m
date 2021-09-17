@@ -131,7 +131,11 @@ wP.I = [Itot(1,1) 0 0; 0 Itot(3,3) 0; 0 0 Itot(2,2)]; % rotate cos
 %% Save nodes and elements for plotting mesh
 if wingDesign.plot
     wP.Nodes = Nodes;
-    wP.Element_IS = Element_IS;
+    if wingDesign.nRibsC > 0
+        wP.Element_IS = Element_IS;
+    else
+        wP.Element_IS = [];
+    end
     wP.Element_FSp = Element_FSp;
     wP.Element_SPARp = Element_SPARp;
     wP.Element_Ap = Element_Ap;
