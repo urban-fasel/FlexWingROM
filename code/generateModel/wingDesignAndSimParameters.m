@@ -6,7 +6,7 @@ function [wingDesign, simParam] = wingDesignAndSimParameters(morphingWing, airfo
 % general wing parameters
 wingDesign.airfoil = airfoil; % choose airfoil: coordinates are loaded from file in folder 'airfoils' 
 wingDesign.chord = 0.5; % chord length
-wingDesign.span = 10; % span 
+wingDesign.span = 10;  % span 
 
 % spars, ribs
 wingDesign.nRibs = 9;               % number of rib pairs
