@@ -3,16 +3,23 @@
 %
 %% This code models fluid structure interaction of flexible wings and generates data-driven reduced order models for control of flexible wings
 %
-%   The code is mainly based on the following three publications:
-%       - Reduced-order dynamic model of a morphing airborne wind energy aircraft
-%            U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni.
-%            https://arc.aiaa.org/doi/abs/10.2514/1.J058019
-%       - Data-driven nonlinear aeroelastic models of morphing wings for control
+%   The code is mainly based on the following publications:
+%
+%       - Data-driven nonlinear aeroelastic models of morphing wings for control.
 %            N. Fonzi, S. L. Brunton, U. Fasel.
 %            https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.2020.0079
-%       - The balanced mode decomposition algorithm for data-driven LPV low-order models of aeroservoelastic systems
-%            A. Iannelli, U. Fasel, R. S. Smith
+%       - The balanced mode decomposition algorithm for data-driven LPV low-order models of aeroservoelastic systems.
+%            A. Iannelli, U. Fasel, R. S. Smith.
 %            https://www.sciencedirect.com/science/article/pii/S127096382100331X
+%       - A method to construct reduced‐order parameter‐varying models
+%            Annoni, Jennifer, and Peter Seiler
+%            https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rnc.3586
+%       - Aero-structural optimization of three-dimensional adaptive wings with embedded smart actuators
+%            Molinari, Giulio, Andres F. Arrieta, and Paolo Ermanni.
+%            https://arc.aiaa.org/doi/abs/10.2514/1.J052715
+%       - Reduced-order dynamic model of a morphing airborne wind energy aircraft.
+%            U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni.
+%            https://arc.aiaa.org/doi/abs/10.2514/1.J058019
 %
 %
 %   In this script, first, a flexible wing FSI model is generated that is coupling a finite element
