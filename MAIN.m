@@ -12,10 +12,10 @@
 %            A. Iannelli, U. Fasel, R. S. Smith.
 %            https://www.sciencedirect.com/science/article/pii/S127096382100331X
 %       - A method to construct reduced‐order parameter‐varying models
-%            Annoni, Jennifer, and Peter Seiler
+%            J. Annoni, P. Seiler
 %            https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rnc.3586
 %       - Aero-structural optimization of three-dimensional adaptive wings with embedded smart actuators
-%            Molinari, Giulio, Andres F. Arrieta, and Paolo Ermanni.
+%            G. Molinari, A. F. Arrieta, and P. Ermanni.
 %            https://arc.aiaa.org/doi/abs/10.2514/1.J052715
 %       - Reduced-order dynamic model of a morphing airborne wind energy aircraft.
 %            U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni.
