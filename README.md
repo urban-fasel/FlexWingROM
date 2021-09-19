@@ -50,7 +50,7 @@ The FSI solver is used to generate synthetic impulse response data sets that are
 Most importantly, the model order reduction methods can easily be used with other fluid or fluid structure data sets (both numerical and experimental), by simply loading any external impulse response data. Therefore, the code should be widely applicable and useful for generating accurate and efficient reduced order models.
 
 
-## This code based on the following publications
+## The code is mainly based on the following publications
 
 The code is mainly based on the following publications:
  
