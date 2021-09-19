@@ -15,7 +15,7 @@ FlexWingROM is a matlab codebase that contains a fully parametrized wing model g
 
 ### Parametrized wing model generator and fluid structure interaction simulation of flexible wings
 
-First, a flexible wing FSI model is generated that is coupling a finite element code with a 3D unsteady panel method. The wing design is fully parametrised and can be defined in [code/wingDesignAndSimParameters.m](/code/wingDesignAndSimParameters.m) (e.g. the airfoil shape, the planform, the material properties, structural design, ...).  
+First, a flexible wing FSI model is generated that is coupling a finite element code with a 3D unsteady panel method. The wing design is fully parametrised and can be defined in [wingDesignAndSimParameters.m](/code/generateModel/wingDesignAndSimParameters.m) (e.g. the airfoil shape, the planform, the material properties, structural design, ...).  
 The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code and XFOIL are used:
 * Finite element code: 
   * Shobhit Jain, Jacopo Marconi & Paolo Tiso (2020). YetAnotherFEcode. Zenodo. 
@@ -33,13 +33,13 @@ The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code an
 ### FSI test cases and comparisons
 
 The FSI model of the flexible wing is then used to run some test cases 
-* Modal vs. full FE-model FSI
-* Unsteady FSI
-* Comparison unsteady panel method vs. Theodorsen's function
+* Modal vs. full FE-model FSI [runSteadyFSItestcases.m](/code/FSI/runSteadyFSItestcases.m)
+* Unsteady FSI [runUnsteadyFSItestcases.m](/code/FSI/runUnsteadyFSItestcases.m)
+* Comparison unsteady panel method vs. Theodorsen's function [runTheodorsenFSItestcases.m](/code/FSI/runTheodorsenFSItestcases.m)
 
 ### Data driven reduced order models
 
-Finally, three data-driven (parametric) reduced order modeling approaches are implemented and compared:
+Finally, three data-driven (parametric) reduced order modeling approaches are implemented and compared ([MAIN_ROM.m](/code/ROM/MAIN_ROM.m)):
 * algebraic dynamic mode decomposition with control 
 * input output dynamic mode decomposition
 * balanced mode decomposition
@@ -47,12 +47,8 @@ Finally, three data-driven (parametric) reduced order modeling approaches are im
 
 ## Code based on following publications
 
-The code is mainly based on the following three publications:
-
-* U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni. Reduced-order dynamic model of a morphing airborne wind energy aircraft.
-  
-  https://arc.aiaa.org/doi/abs/10.2514/1.J058019
-     
+The code is mainly based on the following publications:
+ 
 * N. Fonzi, S. L. Brunton, U. Fasel. Data-driven nonlinear aeroelastic models of morphing wings for control
   
   https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.2020.0079
@@ -60,3 +56,16 @@ The code is mainly based on the following three publications:
 * A. Iannelli, U. Fasel, R. S. Smith. The balanced mode decomposition algorithm for data-driven LPV low-order models of aeroservoelastic systems
   
   https://www.sciencedirect.com/science/article/pii/S127096382100331X
+
+* J. Annoni, P. Seiler. A method to construct reduced‐order parameter‐varying models
+
+  https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rnc.3586
+
+* G. Molinari, A. F. Arrieta, and P. Ermanni. Aero-structural optimization of three-dimensional adaptive wings with embedded smart actuators
+ 
+  https://arc.aiaa.org/doi/abs/10.2514/1.J052715
+
+* U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni. Reduced-order dynamic model of a morphing airborne wind energy aircraft.
+  
+  https://arc.aiaa.org/doi/abs/10.2514/1.J058019
+    
