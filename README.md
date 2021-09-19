@@ -39,7 +39,7 @@ The FSI model of the flexible wing is then used to run some test cases
 * Unsteady FSI [runUnsteadyFSItestcases.m](/code/FSI/runUnsteadyFSItestcases.m)
 * Comparison unsteady panel method vs. Theodorsen's function [runTheodorsenFSItestcases.m](/code/FSI/runTheodorsenFSItestcases.m)
 
-### Data driven reduced order models
+### Data driven (parameter varying) reduced order models
 
 The main features of the code are the three data-driven (parameter varying) reduced order modeling approaches ([MAIN_ROM.m](/code/ROM/MAIN_ROM.m)):
 * algebraic dynamic mode decomposition with control 
