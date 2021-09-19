@@ -15,7 +15,7 @@ FlexWingROM is a matlab codebase that contains a fully parametrized wing model g
 
 ### Parametrized wing model generator and fluid structure interaction simulation of flexible wings
 
-First, a flexible wing FSI model is generated that is coupling a finite element code with a 3D unsteady panel method. The wing design is fully parametrised and can be defined in the [code/wingDesignAndSimParameters.m](/code/wingDesignAndSimParameters.m) (e.g. the airfoil shape, the planform, the material properties, structural design, ...).  
+First, a flexible wing FSI model is generated that is coupling a finite element code with a 3D unsteady panel method. The wing design is fully parametrised and can be defined in [code/wingDesignAndSimParameters.m](/code/wingDesignAndSimParameters.m) (e.g. the airfoil shape, the planform, the material properties, structural design, ...).  
 The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code and XFOIL are used:
 * Finite element code: 
   * Shobhit Jain, Jacopo Marconi & Paolo Tiso (2020). YetAnotherFEcode. Zenodo. 
@@ -38,6 +38,7 @@ The FSI model of the flexible wing is then used to run some test cases
 * Comparison unsteady panel method vs. Theodorsen's function
 
 ### Data driven reduced order models
+
 Finally, three data-driven (parametric) reduced order modeling approaches are implemented and compared:
 * algebraic dynamic mode decomposition with control 
 * input output dynamic mode decomposition
