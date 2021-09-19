@@ -1,6 +1,6 @@
-# FlexWingROM
+# FlexWing-ROM
  
-The matlab codebase FlexWing-ROM models fluid structure interaction (FSI) of flexible wings and generates data-driven reduced order models for control of flexible wings.  
+The matlab codebase **FlexWing-ROM** models fluid structure interaction (FSI) of flexible wings and generates data-driven reduced order models for control of flexible wings.  
 
 Details about the different methods can be found in the JOSS paper Fasel et al. (2021).
 
