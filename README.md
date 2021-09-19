@@ -54,23 +54,13 @@ Most importantly, the model order reduction methods can easily be used with othe
 
 The code is mainly based on the following publications:
  
-* N. Fonzi, S. L. Brunton, U. Fasel. Data-driven nonlinear aeroelastic models of morphing wings for control. Proceedings of the Royal Society A, 2020.
-  
-  https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.2020.0079
+* N. Fonzi, S. L. Brunton, U. Fasel. Data-driven nonlinear aeroelastic models of morphing wings for control. Proceedings of the Royal Society A, 2020. (https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.2020.0079)
      
-* A. Iannelli, U. Fasel, R. S. Smith. The balanced mode decomposition algorithm for data-driven LPV low-order models of aeroservoelastic systems. Aerospace Science and Technology, 2021.
-  
-  https://www.sciencedirect.com/science/article/pii/S127096382100331X
+* A. Iannelli, U. Fasel, R. S. Smith. The balanced mode decomposition algorithm for data-driven LPV low-order models of aeroservoelastic systems. Aerospace Science and Technology, 2021. (https://www.sciencedirect.com/science/article/pii/S127096382100331X)
 
-* J. Annoni, P. Seiler. A method to construct reduced‐order parameter‐varying models. International Journal of Robust and Nonlinear Control, 2017.
+* J. Annoni, P. Seiler. A method to construct reduced‐order parameter‐varying models. International Journal of Robust and Nonlinear Control, 2017. (https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rnc.3586)
 
-  https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rnc.3586
+* G. Molinari, A. F. Arrieta, and P. Ermanni. Aero-structural optimization of three-dimensional adaptive wings with embedded smart actuators. AIAA Journal, 2014. (https://arc.aiaa.org/doi/abs/10.2514/1.J052715)
 
-* G. Molinari, A. F. Arrieta, and P. Ermanni. Aero-structural optimization of three-dimensional adaptive wings with embedded smart actuators. AIAA Journal, 2014
- 
-  https://arc.aiaa.org/doi/abs/10.2514/1.J052715
-
-* U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni. Reduced-order dynamic model of a morphing airborne wind energy aircraft. AIAA Journal, 2019.
-  
-  https://arc.aiaa.org/doi/abs/10.2514/1.J058019
+* U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni. Reduced-order dynamic model of a morphing airborne wind energy aircraft. AIAA Journal, 2019. (https://arc.aiaa.org/doi/abs/10.2514/1.J058019)
     
