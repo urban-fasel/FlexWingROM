@@ -13,7 +13,7 @@ Details about the different methods can be found in the JOSS paper Fasel et al. 
 
 FlexWingROM is a matlab codebase that contains a fully parametrized wing model generator, a fluid-structure interaction solver, and three recent data-driven parametric reduced order modeling methods for flexible wings.
 
-### Parametrized wing model generator and fluid structure interaction simulation of flexible wings
+### Parametrized wing model generator and fluid structure interaction solver
 
 First, a flexible wing FSI model is generated that is coupling a finite element code with a 3D unsteady panel method. The wing design is fully parametrised and can be defined in [wingDesignAndSimParameters.m](/code/generateModel/wingDesignAndSimParameters.m) (e.g. the airfoil shape, the planform, the material properties, structural design, ...).  
 The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code and XFOIL are used:
@@ -39,13 +39,16 @@ The FSI model of the flexible wing is then used to run some test cases
 
 ### Data driven reduced order models
 
-Finally, three data-driven (parametric) reduced order modeling approaches are implemented and compared ([MAIN_ROM.m](/code/ROM/MAIN_ROM.m)):
+The main features of the code are the three data-driven (parameter varying) reduced order modeling approaches ([MAIN_ROM.m](/code/ROM/MAIN_ROM.m)):
 * algebraic dynamic mode decomposition with control 
 * input output dynamic mode decomposition
 * balanced mode decomposition
 
+The FSI solver is used to generate synthetic impulse response data sets that are stored in data files. These are used to build and test the three different reduced order models. Each method can be used to first generate local linear models that are accurate around a single operating condition. Then, depending on each method, interpolation schemes are introduced to build parameter varying models that are accurate over multiple operating conditions. The accuracy of the method is evaluated and the different methods are compared.  
+Most importantly, the model order reduction methods can easily be used with other fluid or fluid structure data sets (both numerical and experimental), by simply loading any external impulse response data. Therefore, the code should be widely applicable and useful for generating accurate and efficient reduced order models.
 
-## Code based on following publications
+
+## This code based on the following publications
 
 The code is mainly based on the following publications:
  
