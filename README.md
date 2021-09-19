@@ -7,7 +7,7 @@ Details about the different methods can be found in the JOSS paper Fasel et al. 
 
 ## How to run the code
 
-[main.m](/main.m)  
+[MAIN.m](/MAIN.m)  
 
 ## What you can do with this code
 
