@@ -52,6 +52,8 @@
 %       - balanced mode decomposition
 %
 %
+%   Urban Fasel, 2021
+%
 %%%%%%%%%%
 
 clear all
@@ -72,16 +74,16 @@ addpath(genpath('code'))
 %   airfoil = 'NACA6418'; morphingWing = true; 
 %   airfoil = 'NACA0012'; morphingWing = false;
 
-generateWing = false;       % generate or load wing design parameters and FSI model
+generateWing = true;        % generate or load wing design parameters and FSI model
 storeAllData = false;       % store all data: needed for runTestSteady
-runTestSteady = false;      % run steady aerodynamics FSI test cases: need to also run generateWing and storeAllData, as the large system matrices are needed for comparison that are not stored 
-runTestUnsteady = false;    % run unsteady aerodynamics FSI test cases
-runTestTheodorsen = true;   % run Theodorsen comparison FSI test cases
-runROM = false;             % generate reduced order models and compare different methods
+runTestSteady = true;       % run steady aerodynamics FSI test cases: need to also run generateWing and storeAllData, as the large system matrices are needed for comparison that are not stored 
+runTestUnsteady = true;     % run unsteady aerodynamics FSI test cases
+runTestTheodorsen = false;  % run Theodorsen comparison FSI test cases (only makes sense for NACA0012 non-morphing wing)
+runROM = true;              % generate reduced order models and compare different methods
  
-airfoil = 'NACA0012'; % 'NACA6418';       % choose airfoil: coordinates are loaded from file in folder 'airfoils' 
-morphingWing = false; % true;       % set true for wing design with compliant ribs -> morphing for roll and load control
-plt = false;                % plot
+airfoil = 'NACA6418';       % choose airfoil: coordinates are loaded from file in folder 'airfoils' 
+morphingWing =  true;       % set true for wing design with compliant ribs -> morphing for roll and load control
+plt = true;                 % plot
 
 % define the main wing design and simulation parameters
 if generateWing
