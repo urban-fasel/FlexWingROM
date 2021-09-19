@@ -9,7 +9,14 @@ Details about the different methods can be found in the JOSS paper Fasel et al. 
 
 ## How to run the code
 
+### main file
 [MAIN.m](/MAIN.m)  
+
+### test files
+[test_NACA0012vsTheodorsen.m](/test_NACA0012vsTheodorsen.m)   ->  comparing the unsteady panel method (on a NACA0012) with Theodorsen's function
+
+[test_NACA6412_ROM.m](/test_NACA6412_ROM.m)   ->  comparing all three data driven ROMs (using a NACA6412 morphing wing)
+
 
 ## What you can do with this code
 
