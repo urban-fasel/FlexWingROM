@@ -1,10 +1,13 @@
 # FlexWingROM
  
-This matlab code models fluid structure interaction of flexible wings and generates data-driven reduced order models for control of flexible wings
+The matlab codebase FlexWing-ROM models fluid structure interaction (FSI) of flexible wings and generates data-driven reduced order models for control of flexible wings.  
+
+Details about the different methods can be found in the JOSS paper Fasel et al. (2021).
+
 
 ## How to run the code
 
-main.m
+[main.m](/main.m)  
 
 ## What you can do with this code
 
@@ -12,27 +15,19 @@ FlexWingROM is a matlab codebase that contains a fully parametrized wing model g
 
 ### Parametrized wing model generator and fluid structure interaction simulation of flexible wings
 
-First, a flexible wing FSI model is generated that is coupling a finite element
-code with a 3D unsteady panel method. The wing design is fully
-parametrised and can be defined in the function wingDesignAndSimParameters 
-(e.g. the airfoil shape, the planform, the material properties, structural design, ...).
-The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code and XFOIL are used
-
+First, a flexible wing FSI model is generated that is coupling a finite element code with a 3D unsteady panel method. The wing design is fully parametrised and can be defined in the [code/wingDesignAndSimParameters.m](/code/wingDesignAndSimParameters.m) (e.g. the airfoil shape, the planform, the material properties, structural design, ...).  
+The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code and XFOIL are used:
 * Finite element code: 
-  
-  Shobhit Jain, Jacopo Marconi & Paolo Tiso (2020). YetAnotherFEcode. Zenodo. 
-  
-  Paper: http://doi.org/10.5281/zenodo.4011281    Code: https://github.com/jain-shobhit/YetAnotherFEcode
+  * Shobhit Jain, Jacopo Marconi & Paolo Tiso (2020). YetAnotherFEcode. Zenodo. 
+  * Paper: http://doi.org/10.5281/zenodo.4011281    
+  * Code: https://github.com/jain-shobhit/YetAnotherFEcode
     
 * 3D unsteady panel method
-  
-  Based on J Katz, A Plotkin. Low-speed aerodynamics, Cambridge university press, 2001
-  
-  Steady panel method matlab implementation: http://www.3dpanelmethod.com/ 
+  * Based on J Katz, A Plotkin. Low-speed aerodynamics, Cambridge university press, 2001
+  * Steady panel method matlab implementation: http://www.3dpanelmethod.com/ 
     
 * XFOIL
-  
-  M. Drela. XFOIL, https://web.mit.edu/drela/Public/web/xfoil/ (XFOIL MATLAB interface 2011 by Rafael Oliveira) 
+  * M. Drela. XFOIL, https://web.mit.edu/drela/Public/web/xfoil/ (XFOIL MATLAB interface 2011 by Rafael Oliveira) 
    
    
 ### FSI test cases and comparisons
