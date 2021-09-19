@@ -9,11 +9,11 @@ Details about the different methods can be found in the JOSS paper Fasel et al. 
 
 ## How to run the code
 
-### main file
+### Main file
 [MAIN.m](/MAIN.m)  
 Generates a wing (NACA0012 or NACA6412, morphing or non-morphing), runs all test cases, and generates the reduced order models.
 
-### test files
+### Test files
 [test_NACA0012vsTheodorsen.m](/test_NACA0012vsTheodorsen.m)   
 Comparing the unsteady panel method (on a NACA0012) with Theodorsen's function.
 
