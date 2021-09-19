@@ -2,13 +2,21 @@
  
 The matlab codebase **FlexWing-ROM** models fluid structure interaction (FSI) of flexible wings and generates data-driven reduced order models that can be used for analysis and control.  
 
+![FlexWing-ROM_OverviewFigure](/data/FlexWing-ROM_OverviewFigure.png)  
+
 Details about the different methods can be found in the JOSS paper Fasel et al. (2021) -> link will follow.
 
-![FlexWing-ROM_OverviewFigure](/data/FlexWing-ROM_OverviewFigure.png)  
 
 ## How to run the code
 
-[MAIN.m](/MAIN.m)  
+### main file
+[MAIN.m](/MAIN.m) -> generates a wing (NACA0012 or NACA6412, morphing or non-morphing), runs all test cases and generates the reduced order models.
+
+### test files
+[test_NACA0012vsTheodorsen.m](/test_NACA0012vsTheodorsen.m)   ->  comparing the unsteady panel method (on a NACA0012) with Theodorsen's function
+
+[test_NACA6412_ROM.m](/test_NACA6412_ROM.m)   ->  comparing all three data driven ROMs (using a NACA6412 morphing wing)
+
 
 ## What you can do with this code
 
@@ -38,7 +46,7 @@ The FSI model of the flexible wing is then used to run some test cases
 * Unsteady FSI [runUnsteadyFSItestcases.m](/code/FSI/runUnsteadyFSItestcases.m)
 * Comparison unsteady panel method vs. Theodorsen's function [runTheodorsenFSItestcases.m](/code/FSI/runTheodorsenFSItestcases.m)
 
-### Data driven reduced order models
+### Data driven (parameter varying) reduced order models
 
 The main features of the code are the three data-driven (parameter varying) reduced order modeling approaches ([MAIN_ROM.m](/code/ROM/MAIN_ROM.m)):
 * algebraic dynamic mode decomposition with control 
@@ -49,27 +57,17 @@ The FSI solver is used to generate synthetic impulse response data sets that are
 Most importantly, the model order reduction methods can easily be used with other fluid or fluid structure data sets (both numerical and experimental), by simply loading any external impulse response data. Therefore, the code should be widely applicable and useful for generating accurate and efficient reduced order models.
 
 
-## This code based on the following publications
+## The code is mainly based on the following publications
 
 The code is mainly based on the following publications:
  
-* N. Fonzi, S. L. Brunton, U. Fasel. Data-driven nonlinear aeroelastic models of morphing wings for control. Proceedings of the Royal Society A, 2020.
-  
-  https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.2020.0079
+* N. Fonzi, S. L. Brunton, U. Fasel. Data-driven nonlinear aeroelastic models of morphing wings for control. Proceedings of the Royal Society A, 2020. (https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.2020.0079)
      
-* A. Iannelli, U. Fasel, R. S. Smith. The balanced mode decomposition algorithm for data-driven LPV low-order models of aeroservoelastic systems. Aerospace Science and Technology, 2021.
-  
-  https://www.sciencedirect.com/science/article/pii/S127096382100331X
+* A. Iannelli, U. Fasel, R. S. Smith. The balanced mode decomposition algorithm for data-driven LPV low-order models of aeroservoelastic systems. Aerospace Science and Technology, 2021. (https://www.sciencedirect.com/science/article/pii/S127096382100331X)
 
-* J. Annoni, P. Seiler. A method to construct reduced‐order parameter‐varying models. International Journal of Robust and Nonlinear Control, 2017.
+* J. Annoni, P. Seiler. A method to construct reduced‐order parameter‐varying models. International Journal of Robust and Nonlinear Control, 2017. (https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rnc.3586)
 
-  https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rnc.3586
+* G. Molinari, A. F. Arrieta, and P. Ermanni. Aero-structural optimization of three-dimensional adaptive wings with embedded smart actuators. AIAA Journal, 2014. (https://arc.aiaa.org/doi/abs/10.2514/1.J052715)
 
-* G. Molinari, A. F. Arrieta, and P. Ermanni. Aero-structural optimization of three-dimensional adaptive wings with embedded smart actuators. AIAA Journal, 2014
- 
-  https://arc.aiaa.org/doi/abs/10.2514/1.J052715
-
-* U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni. Reduced-order dynamic model of a morphing airborne wind energy aircraft. AIAA Journal, 2019.
-  
-  https://arc.aiaa.org/doi/abs/10.2514/1.J058019
+* U. Fasel, P. Tiso, D. Keidel, G. Molinari, P. Ermanni. Reduced-order dynamic model of a morphing airborne wind energy aircraft. AIAA Journal, 2019. (https://arc.aiaa.org/doi/abs/10.2514/1.J058019)
     
