@@ -64,7 +64,6 @@ runSim = 0; % run simulations or load results
 
 % run loop for different reduced frequencies
 kRange = [0.01:0.02:0.07 0.1:0.1:0.5];
-% kRange = 0.4;
 simUnsteadyParam.time = 1.5; % length of the simulation 
 simUnsteadyParam.iTest = round(simUnsteadyParam.time/simUnsteadyParam.dT); % total size of the simulated trajectory  
 
@@ -99,7 +98,7 @@ end
 
 
 %% calculate amplitude and phase lag unsteady aero
-startfrom = 2;%round(simUnsteadyParam.timeInit/simUnsteadyParam.dT);
+startfrom = 2;
 
 for ii = 1:length(kRange)
     
@@ -178,8 +177,4 @@ results.amplitudeTheodorsen = amplitudeTheodorsen;
 results.phaseTheodorsen = phaseTheodorsen;
 results.amplitude = amplitude;
 results.phase = phase;
-
-
-% figure
-% plot(real(C_theod),imag(C_theod))
 
