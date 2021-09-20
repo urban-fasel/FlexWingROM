@@ -12,7 +12,7 @@ V = simUnsteadyParam.V;
 
 %% Simulation parameters
 
-timeINIT = simUnsteadyParam.timeInit;%1.5;                 % Initialisation time
+timeINIT = simUnsteadyParam.timeInit;              % Initialisation time
 deltaAct.DsimTime = simUnsteadyParam.dT;
 dT = simUnsteadyParam.dT;
 
