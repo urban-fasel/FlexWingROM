@@ -30,17 +30,15 @@ FlexWingROM is a matlab codebase that contains a fully parametrized wing model g
 First, a flexible wing FSI model is generated that is coupling a finite element code with a 3D unsteady panel method. The wing design is fully parametrised and can be defined in [wingDesignAndSimParameters.m](/code/generateModel/wingDesignAndSimParameters.m) (e.g. the airfoil shape, the planform, the material properties, structural design, ...).  
 The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code and XFOIL are used:
 * Finite element code: 
-  * Shobhit Jain, Jacopo Marconi & Paolo Tiso (2020). YetAnotherFEcode. Zenodo. 
-  * Paper: http://doi.org/10.5281/zenodo.4011281    
-  * Code: https://github.com/jain-shobhit/YetAnotherFEcode
+  * Shobhit Jain, Jacopo Marconi & Paolo Tiso (2020). [YetAnotherFEcode](http://doi.org/10.5281/zenodo.4011281). Zenodo. 
     
 * 3D unsteady panel method
   * Based on J Katz, A Plotkin. Low-speed aerodynamics, Cambridge university press, 2001
-  * Steady panel method matlab implementation: http://www.3dpanelmethod.com/ 
+  * Steady panel method matlab implementation: [Apame](http://www.3dpanelmethod.com/) 
     
 * XFOIL
-  * M. Drela. XFOIL, https://web.mit.edu/drela/Public/web/xfoil/ 
-  * Matlab interface 2011 by Rafael Oliveira, https://www.mathworks.com/matlabcentral/fileexchange/30478-rafael-aero-xfoilinterface
+  * M. Drela. [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/) 
+  * [Matlab interface](https://www.mathworks.com/matlabcentral/fileexchange/30478-rafael-aero-xfoilinterface) 2011 by Rafael Oliveira
    
    
 ### FSI test cases and comparisons
@@ -54,7 +52,7 @@ The FSI model of the flexible wing is then used to run some test cases
 
 The main features of the code are the three data-driven (parameter varying) reduced order modeling approaches ([MAIN_ROM.m](/code/ROM/MAIN_ROM.m)):
 * algebraic dynamic mode decomposition with control 
-* input output dynamic mode decomposition
+* input output reduced-order model
 * balanced mode decomposition
 
 The FSI solver is used to generate synthetic impulse response data sets that are stored in data files. These are used to build and test the three different reduced order models. Each method can be used to first generate local linear models that are accurate around a single operating condition. Then, depending on each method, interpolation schemes are introduced to build parameter varying models that are accurate over multiple operating conditions. The accuracy of the method is evaluated and the different methods are compared.  
