@@ -1,8 +1,8 @@
 function MAIN_ROM(paramFSI)
 
 % Choose whether the data is generated running the FSI or data is loaded
-runTrainingPhase = 0;       % initialise wake, run training phase (impulse response in direction of all inputs), and store snapshots
-runTestingFullModel = 0;    % run testing phase with full FSI model, used for comparison with reduced order models
+runTrainingPhase = paramFSI.generateNewData;       % initialise wake, run training phase (impulse response in direction of all inputs), and store snapshots
+runTestingFullModel = paramFSI.generateNewData;    % run testing phase with full FSI model, used for comparison with reduced order models
 
 % Preliminary parameters definition
 time = 3.0;     % length of the simulation: both training and testing phase
