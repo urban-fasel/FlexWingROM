@@ -33,7 +33,7 @@ The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code an
   * Shobhit Jain, Jacopo Marconi & Paolo Tiso (2020). [YetAnotherFEcode](http://doi.org/10.5281/zenodo.4011281). Zenodo. 
     
 * 3D unsteady panel method
-  * Based on J Katz, A Plotkin. Low-speed aerodynamics, Cambridge university press, 2001
+  * Based on J Katz, A Plotkin. [Low-speed aerodynamics](https://www.cambridge.org/core/books/lowspeed-aerodynamics/077FAF851C4582F1B7593809752C44AE), Cambridge university press, 2001
   * Steady panel method matlab implementation: [Apame](http://www.3dpanelmethod.com/) 
     
 * XFOIL
