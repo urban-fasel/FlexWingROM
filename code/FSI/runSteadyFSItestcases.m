@@ -13,7 +13,7 @@ simSteadyParam.alpha = 6;           % angle of attack
 simSteadyParam.forceACTinp.L = 1;   % actuator force unsymmetric actuation (roll actuation), [-1 1]
 simSteadyParam.forceACTinp.fs = 0;  % actuator force symmetric actuation (cL control), [-1 1]
 
-simSteadyParam.doPlot = 1; % plot deformed wing
+simSteadyParam.doPlot = paramFSI.plt; % plot deformed wing
 
 % run FSI using modal stiffness matrix
 FSI_steady_out = FSI_steady(paramFSI, simSteadyParam);
