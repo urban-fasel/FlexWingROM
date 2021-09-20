@@ -35,15 +35,14 @@ addpath(genpath('code'))
 %   airfoil = 'NACA0012'; morphingWing = false;
 
 generateWing = false;       % generate or load wing design parameters and FSI model
+generateNewData = false;    % run FSI to generate new data, or load data
 storeAllData = false;       % store all data: needed for runTestSteady
-runTestSteady = false;      % run steady aerodynamics FSI test cases: need to also run generateWing and storeAllData, as the large system matrices are needed for comparison that are not stored 
-runTestUnsteady = false;    % run unsteady aerodynamics FSI test cases
 runTestTheodorsen = true;   % run Theodorsen comparison FSI test cases
-runROM = false;             % generate reduced order models and compare different methods
- 
+
 airfoil = 'NACA0012';       % choose airfoil: coordinates are loaded from file in folder 'airfoils' 
 morphingWing = false;       % set true for wing design with compliant ribs -> morphing for roll and load control
-plt = false;                % plot
+plt = true;                 % plot results of test cases
+
 
 % define the main wing design and simulation parameters
 if generateWing
@@ -80,43 +79,17 @@ end
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%% run FSI test cases:
+%% run test case:
 % 
-%   - comparing modal vs. full FE model with steady panel method
-%   - run unsteady FSI test case
 %   - compare unsteady panel method with Theodorsen's function
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% if runTest
-%     FSI_testCases = runFSItestcases(paramFSI, simParam, wingModelStructure, wingDesign, wingModelAero);
-% end
-if runTestSteady
-    SteadyTestCases = runSteadyFSItestcases(paramFSI, simParam, wingModelStructure, wingDesign, wingModelAero);
-end
-if runTestUnsteady
-    UnsteadyTestCases = runUnsteadyFSItestcases(paramFSI);
-end
+paramFSI.generateNewData = generateNewData;
+paramFSI.plt = plt;
+
 if runTestTheodorsen
     TheodorsenTestCases = runTheodorsenFSItestcases(paramFSI);
 end
 
-
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%% run (parametric) reduced order models:
-% 
-%   - generate reduced order models
-%   - compare different methods: accuracy of model as a function of model rank
-%
-%   - currently, MAIN_ROM works with the morphing wing. However, the
-%       ROMs can also be generated for: a) aero only, or b) flexible
-%       non-morphing case. In these cases, the number of inputs need to be
-%       changed (from 6 to 4, as the two morphing inputs are not used).
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-if runROM
-    MAIN_ROM(paramFSI);
-end
 
