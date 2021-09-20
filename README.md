@@ -39,7 +39,8 @@ The open source FE-code YetAnotherFEcode and parts of the Apame 3D panel code an
   * Steady panel method matlab implementation: http://www.3dpanelmethod.com/ 
     
 * XFOIL
-  * M. Drela. XFOIL, https://web.mit.edu/drela/Public/web/xfoil/ (XFOIL MATLAB interface 2011 by Rafael Oliveira) 
+  * M. Drela. XFOIL, https://web.mit.edu/drela/Public/web/xfoil/ 
+  * Matlab interface 2011 by Rafael Oliveira, https://www.mathworks.com/matlabcentral/fileexchange/30478-rafael-aero-xfoilinterface
    
    
 ### FSI test cases and comparisons
