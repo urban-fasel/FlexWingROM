@@ -35,15 +35,13 @@ addpath(genpath('code'))
 %   airfoil = 'NACA0012'; morphingWing = false;
 
 generateWing = false;       % generate or load wing design parameters and FSI model
+generateNewData = false;    % run FSI to generate new data, or load data
 storeAllData = false;       % store all data: needed for runTestSteady
-runTestSteady = false;      % run steady aerodynamics FSI test cases: need to also run generateWing and storeAllData, as the large system matrices are needed for comparison that are not stored 
-runTestUnsteady = false;    % run unsteady aerodynamics FSI test cases
-runTestTheodorsen = false;   % run Theodorsen comparison FSI test cases
-runROM = true;             % generate reduced order models and compare different methods
+runROM = true;              % generate reduced order models and compare different methods
  
 airfoil = 'NACA6418';       % choose airfoil: coordinates are loaded from file in folder 'airfoils' 
 morphingWing = true;        % set true for wing design with compliant ribs -> morphing for roll and load control
-plt = false;                % plot
+plt = true;                 % plot results of test cases
 
 % define the main wing design and simulation parameters
 if generateWing
@@ -72,40 +70,9 @@ if generateWing
     % save parameters that are used in FSI
     paramFSI = saveParamFSI(wingDesign,simParam,wingModelStructure,wingModelAero,storeAllData);
 else
-%     % load parameters
-%     parameters = load(['data/par_all_FSI_', airfoil, '.mat']);
-%     paramFSI = parameters.paramFSI;
-%     wingDesign = parameters.wingDesign;
-%     simParam = parameters.simParam;
-%     wingModelStructure = parameters.wingModelStructure;
-%     wingModelAero = parameters.wingModelAero;
     
     parameters = load(['data/parsim_FSI_', airfoil, '.mat']);
     paramFSI = parameters.paramFSI;
-end
-
-
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%% run FSI test cases:
-% 
-%   - comparing modal vs. full FE model with steady panel method
-%   - run unsteady FSI test case
-%   - compare unsteady panel method with Theodorsen's function
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% if runTest
-%     FSI_testCases = runFSItestcases(paramFSI, simParam, wingModelStructure, wingDesign, wingModelAero);
-% end
-if runTestSteady
-    SteadyTestCases = runSteadyFSItestcases(paramFSI, simParam, wingModelStructure, wingDesign, wingModelAero);
-end
-if runTestUnsteady
-    UnsteadyTestCases = runUnsteadyFSItestcases(paramFSI);
-end
-if runTestTheodorsen
-    TheodorsenTestCases = runTheodorsenFSItestcases(paramFSI);
 end
 
 
@@ -122,6 +89,9 @@ end
 %       changed (from 6 to 4, as the two morphing inputs are not used).
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+paramFSI.generateNewData = generateNewData;
+paramFSI.plt = plt;
 
 if runROM
     MAIN_ROM(paramFSI);
