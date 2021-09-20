@@ -11,7 +11,7 @@ simID = 'Theodorsen';      % simulation identification, used to save and load da
 
 paramFSI.aeroOnly = 1;      % run aerodynamics only (no wing deformation): true for comparison with Theodorsen
 
-simUnsteadyParam.V = 50;                % flight velocity
+simUnsteadyParam.V = 30;                % flight velocity
 simUnsteadyParam.alpha = 0;             % angle of attack
 simUnsteadyParam.deltaAlpha = 1*pi/180; % Amplitude angle of attack
 
@@ -45,7 +45,7 @@ FSI_steady_out = FSI_steady(paramFSI, simSteadyParam);
 %% initialize unsteady FSI for Theodorsen
 
 % run or load initialization of unsteady simulation: initializes the wake. FSI is then restarted from the initialized wake
-initializeUnsteadySim = 0; % true will run initialization
+initializeUnsteadySim = paramFSI.generateNewData; % true will run initialization
 
 if initializeUnsteadySim
     paramFSI.inputCreate.restartIN = [];
@@ -60,7 +60,7 @@ end
 
 %% comparison unsteady panel method with Theodorsen
 
-runSim = 0; % run simulations or load results 
+runSim = paramFSI.generateNewData; % run simulations or load results 
 
 % run loop for different reduced frequencies
 kRange = [0.01:0.02:0.07 0.1:0.1:0.5];
@@ -81,16 +81,16 @@ if runSim
         % save results
         simOutUnsteadyS{ii} = simOutUnsteady;
 
-        if ~exist(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Theodorsen',filesep,'V',num2str(simUnsteadyParam.V)), 'dir')
-           mkdir(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Theodorsen',filesep,'V',num2str(simUnsteadyParam.V)))
+        if ~exist(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,simID,filesep,'V',num2str(simUnsteadyParam.V)), 'dir')
+           mkdir(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,simID,filesep,'V',num2str(simUnsteadyParam.V)))
         end
-        save(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Theodorsen',filesep,'V',num2str(simUnsteadyParam.V),filesep,...
+        save(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,simID,filesep,'V',num2str(simUnsteadyParam.V),filesep,...
             sprintf('simOutUnsteady_V%d_alpha%d_k0_%d.mat',simUnsteadyParam.V,simUnsteadyParam.alpha,100*simUnsteadyParam.k)), 'simOutUnsteady');
     end
 else
     for ii = 1:length(kRange)
         simUnsteadyParam.k = kRange(ii);        % Reduced frequency (angle of attack)
-        simOut = load(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Theodorsen',filesep,'V',num2str(simUnsteadyParam.V),filesep,...
+        simOut = load(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,simID,filesep,'V',num2str(simUnsteadyParam.V),filesep,...
             sprintf('simOutUnsteady_V%d_alpha%d_k0_%d.mat',simUnsteadyParam.V,simUnsteadyParam.alpha,100*simUnsteadyParam.k)));
         simOutUnsteadyS{ii} = simOut.simOutUnsteady;
     end
@@ -157,20 +157,21 @@ for ii = 1:length(kRange)
 end
 
 % plot
-figure
-plot(kRange,phaseTheodorsen,'b'); hold on
-plot(kRange,phase,'r--')
-xlabel('reduced frequency k')
-ylabel('phase lag, deg')
-legend({'Theodorsen', 'Unsteady panel method'})
+if paramFSI.plt
+    figure
+    plot(kRange,phaseTheodorsen,'b'); hold on
+    plot(kRange,phase,'r--')
+    xlabel('reduced frequency k')
+    ylabel('phase lag, deg')
+    legend({'Theodorsen', 'Unsteady panel method'})
 
-figure
-plot(kRange,amplitudeTheodorsen,'b'); hold on
-plot(kRange,amplitude,'r--')
-xlabel('reduced frequency k')
-ylabel('amplitude')
-legend({'Theodorsen', 'Unsteady panel method'})
-
+    figure
+    plot(kRange,amplitudeTheodorsen,'b'); hold on
+    plot(kRange,amplitude,'r--')
+    xlabel('reduced frequency k')
+    ylabel('amplitude')
+    legend({'Theodorsen', 'Unsteady panel method'})
+end
 
 results.kRange = kRange;
 results.amplitudeTheodorsen = amplitudeTheodorsen;
