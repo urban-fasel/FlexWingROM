@@ -2,9 +2,9 @@
  
 The matlab codebase **FlexWing-ROM** models fluid structure interaction (FSI) of flexible wings and generates data-driven reduced order models that can be used for analysis and control.  
 
-![FlexWing-ROM_OverviewFigure](/docs/FlexWing-ROM_OverviewFigure.png)  
+The different methods are introduced in the arXiv paper Fasel et al. (2021) -> link will follow.
 
-Details about the different methods can be found in the JOSS paper Fasel et al. (2021) -> link will follow.
+![FlexWing-ROM_OverviewFigure](/docs/FlexWing-ROM_OverviewFigure.png)  
 
 
 ## How to run the code
@@ -13,7 +13,7 @@ Details about the different methods can be found in the JOSS paper Fasel et al. 
 [MAIN.m](/MAIN.m)  
 Generates a wing (NACA0012 or NACA6412, morphing or non-morphing), runs all test cases, and generates the reduced order models.
 
-### Test files
+### Tutorial files
 [test_NACA0012vsTheodorsen.m](/test_NACA0012vsTheodorsen.m)   
 Comparing the unsteady panel method (on a NACA0012) with Theodorsen's function.
 
