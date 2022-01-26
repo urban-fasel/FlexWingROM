@@ -2,6 +2,15 @@
 
 function wingModelAero = generateWingModelAero(wingDesign,simParam,wingModelStructure)
 
+%%
+%
+%  By Giulio Molinari
+%
+%  Modified by Urban Fasel
+%
+%
+
+
 FE_Grid = wingModelStructure.FE_Grid;
 
 xMeshTol = .5e-3;
