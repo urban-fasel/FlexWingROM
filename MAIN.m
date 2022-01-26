@@ -69,21 +69,21 @@ addpath(genpath('code'))
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % the parameters and simulation results already stored in the folder are
-% for a NACA6418 morphing wing and a NACA0012 non-morphing wing. 
+% for a NACA_6418 morphing wing and a NACA_0012 non-morphing wing. 
 % To reproduce these results, run either:
-%   airfoil = 'NACA6418'; morphingWing = true; 
-%   airfoil = 'NACA0012'; morphingWing = false;
+%   airfoil = 'NACA_6418'; morphingWing = true; 
+%   airfoil = 'NACA_0012'; morphingWing = false;
 
-generateWing = 0;        % generate or load wing design parameters and FSI model
-generateNewData = 1;     % run FSI to generate new data, or load data
+generateWing = false;       % generate or load wing design parameters and FSI model
+generateNewData = false;    % run FSI to generate new data, or load data
 storeAllData = false;       % store all data: needed for runTestSteady
-runTestSteady = 0;       % run steady aerodynamics FSI test cases: need to also run generateWing and storeAllData, as the large system matrices are needed for comparison that are not stored 
-runTestUnsteady = 0;     % run unsteady aerodynamics FSI test cases
-runTestTheodorsen = 1;  % run Theodorsen comparison FSI test cases (run with non-morphing symmetric airfoil, such as NACA0012)
-runROM = 0;              % generate reduced order models and compare different methods
+runTestSteady = false;      % run steady aerodynamics FSI test cases: need to also run generateWing and storeAllData, as the large system matrices are needed for comparison that are not stored 
+runTestUnsteady = false;    % run unsteady aerodynamics FSI test cases
+runTestTheodorsen = false;  % run Theodorsen comparison FSI test cases (run with non-morphing symmetric airfoil, such as NACA0012)
+runROM = true;              % generate reduced order models and compare different methods
  
-airfoil = 'NACA0012';% 'NACA6418';       % choose airfoil: coordinates are loaded from file in folder 'airfoils' 
-morphingWing = false;% true;       % set true for wing design with compliant ribs -> morphing for roll and load control
+airfoil = 'NACA_6418';      % choose airfoil: coordinates are generated with createNACA4.m  
+morphingWing = true;        % set true for wing design with compliant ribs -> morphing for roll and load control
 plt = true;                 % plot wing mesh and results of test cases
 
 % define the main wing design and simulation parameters
@@ -131,7 +131,7 @@ end
 %% run FSI test cases:
 % 
 %   - comparing modal vs. full FE model with steady panel method
-%   - run unsteady FSI test case
+%   - run unsteady FSI pitching test case
 %   - compare unsteady panel method with Theodorsen's function
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,9 +142,28 @@ paramFSI.plt = plt;
 if runTestSteady
     SteadyTestCases = runSteadyFSItestcases(paramFSI, simParam, wingModelStructure, wingDesign, wingModelAero);
 end
+
 if runTestUnsteady
+    paramFSI.initializeFSI = generateNewData;
+    paramFSI.createAnimation = generateNewData;
+    paramFSI.animationName = 'pitching';
+    if paramFSI.createAnimation
+        clearOldAnimationV(paramFSI)
+    end
+
+    simUnsteadyParam.V = 30;                % flight velocity
+    simUnsteadyParam.alpha = 6;             % angle of attack
+    simUnsteadyParam.time = 3.0;            % length of the simulation
+    simUnsteadyParam.dT = 0.006;            % timestep
+    simUnsteadyParam.iTest = round(simUnsteadyParam.time/simUnsteadyParam.dT); % total size of the simulated trajectory  
+    simUnsteadyParam.timeInit = 1.5;        % length of the initialization simulation
+    simUnsteadyParam.k = 0.2;               % Reduced frequency (angle of attack)
+    simUnsteadyParam.deltaAlpha = 2*pi/180; % Amplitude angle of attack
+    simUnsteadyParam.morphingRoll = 0;      % Amplitude morphing to generate roll moment
+
     UnsteadyTestCases = runUnsteadyFSItestcases(paramFSI);
 end
+
 if runTestTheodorsen
     TheodorsenTestCases = runTheodorsenFSItestcases(paramFSI);
 end
@@ -165,6 +184,6 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 if runROM
-    MAIN_ROM(paramFSI);
+    ROM(paramFSI);
 end
 
