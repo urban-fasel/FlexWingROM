@@ -1,5 +1,14 @@
 function wingModelStructure = generateWingModelStructure(wingDesign,simParam)
 
+%%
+%
+%  By Giulio Molinari
+%
+%  Modified by Urban Fasel
+%
+%
+
+
 %% define material and property IDs
 MID_Skin = 1; % wing skin material ID
 MID_IS = 2; % morphing ribs internal structure material ID
@@ -300,7 +309,8 @@ for iRib = 1:numRibs
 	voronoi_settings.sites_Y = wingDesign.voronoiXY(13:24);
 	voronoi_settings.sites_thickness = wingDesign.voronoiT*ones(12,1);
  
-    airfoilShape = load(sprintf('airfoils/%s.dat',wingDesign.airfoil));
+    NACA = split(wingDesign.airfoil,"_");
+    airfoilShape = createNACA4(NACA{2},99);
     rib(iRib).targetShape.nodes = [airfoilShape(1:100,1), airfoilShape(1:100,2), airfoilShape(100:199,1), airfoilShape(100:199,2)];
 
 	rib(iRib).targetShape.nodes = rib(iRib).targetShape.nodes * wingDesign.chord;
