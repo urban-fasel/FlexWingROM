@@ -5,6 +5,11 @@ if (~exist('createROM', 'var'))
     createROM = false;
 end
 
+% check if wing and wake data animation param is defined
+if ~isfield(paramFSI,'createAnimation')
+    paramFSI.createAnimation = false;
+end
+
 % check if this FSI run generates data for the calculation of the empirical
 % observaibility gramian
 if ~isfield(paramFSI,'obsGramian')
