@@ -8,18 +8,18 @@ The different methods are introduced in the arXiv paper Fasel et al. (2021) -> l
 
 ## Table of contents
 * [How to run the code](#how-to-run-the-code)
- * [Main file](#main-file)
-	* [Tutorial files](#tutorial-files)
+ 	* [Main script](#main-script)
+	* [Tutorials](#tutorials)
 * [What you can do with this code](#what-you-can-do-with-this-code)
- * [Parametrized wing model generator and fluid structure interaction solver](#parametrized-wing-model-generator-and-fluid-structure-interaction-solver)
- * [FSI test cases and comparisons](#fsi-test-cases-and-comparisons)
- * [Data driven (parameter varying) reduced order models](#data-driven-parameter-varying-reduced-order-models)
+ 	* [Parametrized wing model generator and fluid structure interaction solver](#parametrized-wing-model-generator-and-fluid-structure-interaction-solver)
+ 	* [FSI test cases and comparisons](#fsi-test-cases-and-comparisons)
+ 	* [Data driven (parameter varying) reduced order models](#data-driven-parameter-varying-reduced-order-models)
 * [References](#the-code-is-mainly-based-on-the-following-publications)
 
 
 ## How to run the code
 
-### Main file
+### Main script
 [MAIN.m](/MAIN.m)  
 Generates a wing (e.g. NACA0012 or NACA6418, morphing or non-morphing), runs different test cases, and generates and compares reduced-order models.  
 
@@ -34,7 +34,7 @@ Two different flexible wings are used as examples, shown in the figure below. On
 
 &nbsp;  
 
-### Tutorial files
+### Tutorials
 
 [example1_NACA0012_FSI_modal_vs_displacement.m](/example1_NACA0012_FSI_modal_vs_displacement.m)   
 Comparing a modal vs. displacement FE-model FSI (on a NACA0012).
