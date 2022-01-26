@@ -13,11 +13,11 @@ The different methods are introduced in the arXiv paper Fasel et al. (2021) -> l
 [MAIN.m](/MAIN.m)  
 Generates a wing (e.g. NACA0012 or NACA6418, morphing or non-morphing), runs all test cases, and generates the reduced order models.
 
-The main code structure is shown here:
-![FlexWing-ROM_OverviewFigure](/docs/FlexWing-ROM_OverviewFigure.png)  
+
+![FlexWing-ROM_CodeStructure](/docs/FlexWing-ROM_CodeStructure.png)  
 
 
-Here are two different flexible wing examples. On the left, a NACA6418 morphing wing (five compliant ribs on each side), and on the right, a NACA0012 non-morphing wing (no compliant ribs). 
+Two different flexible wings are used in the examples, shown here. On the left, a NACA6418 morphing wing (five compliant ribs on each side), and on the right, a NACA0012 non-morphing wing (no compliant ribs). 
 ![Flexible wings](/docs/FlexWing-ROM_WingExamples.png)
 
 
@@ -30,11 +30,8 @@ Runs the unsteady panel method (on a NACA6418) and animates the wake and wing di
 
 Sinusoidal pitching (left) and morphing (right)
 
-![FlexWing-ROM_NACA6418_morphing_animation.mp4](/docs/FlexWing-ROM_NACA6418_morphing_animation.mp4)   
+![FlexWing-ROM_NACA6418_animation.gif](/docs/FlexWing-ROM_NACA6418_animation.gif) 
 
-https://user-images.githubusercontent.com/60729896/151102780-3c36fffb-462b-4cff-8163-c88b159379ab.mp4
-
-https://user-images.githubusercontent.com/60729896/151102902-364ab9ce-6775-4289-a3d0-365ed297d663.mp4
 
 [example3_NACA0012_unsteadyPM_vs_Theodorsen.m](/example3_NACA0012_unsteadyPM_vs_Theodorsen.m)   
 Comparing the unsteady panel method (on a NACA0012) with Theodorsen's function.
