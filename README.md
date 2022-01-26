@@ -25,10 +25,16 @@ Here are two different flexible wing examples. On the left, a NACA6418 morphing 
 [example1_NACA0012_FSI_modal_vs_displacement.m](/example1_NACA0012_FSI_modal_vs_displacement.m)   
 Comparing the modal vs. full FE-model FSI (on a NACA0012).
 
-[example2_NACA6418_unsteadyFSI.m](/example2_NACA6418_unsteadyFSI.m)   
+[example2_NACA6418_unsteadyFSI.m](/example2_NACA6418_unsteadyFSI.m)  
 Runs the unsteady panel method (on a NACA6418) and animates the wake and wing displacements.
 
-![Sinusoidal pitching](/docs/FlexWing-ROM_NACA6418_pitching_animation.mp4) ![Sinusoidal morphing actuation](/docs/FlexWing-ROM_NACA6418_morphing_animation.mp4)  
+Sinusoidal pitching (left) and morphing (right)
+
+![FlexWing-ROM_NACA6418_morphing_animation.mp4](/docs/FlexWing-ROM_NACA6418_morphing_animation.mp4)   
+
+https://user-images.githubusercontent.com/60729896/151102780-3c36fffb-462b-4cff-8163-c88b159379ab.mp4
+
+https://user-images.githubusercontent.com/60729896/151102902-364ab9ce-6775-4289-a3d0-365ed297d663.mp4
 
 [example3_NACA0012_unsteadyPM_vs_Theodorsen.m](/example3_NACA0012_unsteadyPM_vs_Theodorsen.m)   
 Comparing the unsteady panel method (on a NACA0012) with Theodorsen's function.
