@@ -1,6 +1,10 @@
-function clearOldROMsV(paramFSI,V)
+function clearOldROMsV(paramFSI,V,k)
 home = pwd;
-sure = input(sprintf('sure to delete the existing Snapshot matrices and ROMs at V = %dm/s ?',V));
+if k == 1
+    sure = input(sprintf('sure to delete the existing Snapshot matrices and ROMs at V = %dm/s ?',V));
+else
+    sure = 1;
+end
 if sure==0
     error('Stop');
 end
