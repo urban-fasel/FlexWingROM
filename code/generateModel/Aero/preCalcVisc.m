@@ -1,6 +1,7 @@
 function out = preCalcVisc(airfoil,chord)
 
-airfoilCoord = load(sprintf('airfoils/%s.dat',airfoil));
+NACA = split(airfoil,"_");
+airfoilCoord = createNACA4(NACA{2},99);
 foilcords = [airfoilCoord(1:100,1), airfoilCoord(1:100,2), airfoilCoord(100:199,1), airfoilCoord(100:199,2)];
 
 %% xfoil polars for different reynolds
