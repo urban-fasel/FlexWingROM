@@ -45,8 +45,6 @@ wingDesign.plot = plt; % plot FE mesh
 
 %% define main FSI simulation parameters
 
-% simParam.alpha = 6; % base angle of attack
-% simParam.Velocity = 50; % 
 simParam.actForce = 1000; % actuator force
 simParam.nmodes = 8; % number of structure vibration modes. In case of non moprhing wing, 2 additional vibration modes are added
 simParam.addMM = 1; % add morphing modes to vibration modes -> method to reduce number of vibration modes: add moprhing deformation "modes" to vibration modes
@@ -61,7 +59,8 @@ simParam.num_airfoil_nodes_panel = 20; % aero mesh number of panels chordwise di
 simParam.n_seg_PM = 8; % aero mesh number of panels spanwise direction
 simParam.n_seg_LLT = 9; % number of panels lifting line for drag calcualtion
 simParam.rho = 1.225; % rho air
-simParam.simtol = 10^-3;%10^-4; % FSI convergence criteria on relative pressure coefficient and wing deformation
+simParam.simtol = 10^-3; % FSI convergence criteria on relative pressure coefficient and wing deformation
+simParam.cutWakeAt = 100; % Unsteady panel code position to cut the wake: the wake is truncated after a certain number of panels
 
 
 %% non-morphing wing: overwrite these parameters to generate a non-morphing wing
