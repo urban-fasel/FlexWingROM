@@ -1,5 +1,13 @@
 function [FE_nodes_3D, FE_iNodes_up_CCW, FE_iNodes_dn_CCW, FE_nodes_spar, FE_delta_iNodes_EdgeToEdge, corner_nodes, FE_Grid, FE_nodes_spar2, meshOut] = createRibStructure(meshOut, wingDesign, targetShape, voronoi_settings, domain_settings, rib_width, nodeOffset, elemOffset, Z_coord0, numElemThickness, domain_segments_PID, createOnlyOuterNodes, PID_FS, PID_IS)
 
+%%
+%
+%  By Giulio Molinari
+%
+%  Modified by Urban Fasel
+%
+%
+
 %% Constants
 interp1method = 'spline'; % interpolation method for fitting all points inside the profile
 
