@@ -24,9 +24,6 @@ paramFSI.NM.xddi = zeros(nModes,1); % x dot dot i
 paramFSI.NM.fi = zeros(nModes,1); % f i
 paramFSI.NM.act = [0,0];
 
-% Position to cut the wake
-paramFSI.cutWakeAt = findCutPositionWake(paramFSI.wingParams,paramFSI.viscPre,dT);
-
 
 %% Initialise FSI
 
