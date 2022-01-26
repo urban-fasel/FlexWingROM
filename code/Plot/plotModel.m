@@ -10,57 +10,29 @@ Element_Ap = wingModelStructure.wP.Element_Ap;
 Element_Sp = wingModelStructure.wP.Element_Sp;
 Element_RRp = wingModelStructure.wP.Element_RRp;
 
+
+offset = 0.4;
+
+figure
+
+PlotMesh([Nodes(:,3),Nodes(:,1),Nodes(:,2)+offset],Element_Sp,0); % plot wing skin
+
+PlotMesh([Nodes(:,3),Nodes(:,1),Nodes(:,2)],Element_SPARp,0); % plot spars
+PlotMesh([Nodes(:,3),Nodes(:,1),Nodes(:,2)],Element_RRp,0); % plot rigid ribs
 if wingDesign.nRibsC > 0
-    figure
-    PlotMesh(Nodes,Element_IS,0); % plot internal structure
-    title('Mesh: compliant internal structure')
+    PlotMesh([Nodes(:,3),Nodes(:,1),Nodes(:,2)],Element_Ap,0); % plot actuation mounting
+    PlotMesh([Nodes(:,3),Nodes(:,1),Nodes(:,2)],Element_IS,0); % plot compliant ribs internal structure
+    PlotMesh([Nodes(:,3),Nodes(:,1),Nodes(:,2)-offset],Element_FSp,0); % plot flexible skin, for morphing wing
+else
+    PlotMesh([Nodes(:,3),Nodes(:,1),Nodes(:,2)+offset],Element_FSp,0); % plot flexible skin, for non-morphing wing
 end
 
-figure
-PlotMesh(Nodes,Element_FSp,0); % plot flexible skin
-title('Mesh: flexible skin')
-
-figure
-PlotMesh(Nodes,Element_SPARp,0); % plot spars
-title('Mesh: spars')
-
-figure
-PlotMesh(Nodes,Element_RRp,0); % plot rigid ribs
-title('Mesh: rigid ribs')
-
-if wingDesign.nRibsC > 0
-    figure
-    PlotMesh(Nodes,Element_Ap,0); % plot actuation mounting
-    title('Mesh: actuation mounting')
-end
-
-figure
-PlotMesh(Nodes,Element_Sp,0); % plot wing skin
-title('Mesh: wing skin')
-
-figure
-PlotMesh(Nodes,Element_SPARp,0); 
-PlotMesh(Nodes,Element_RRp,0); 
-if wingDesign.nRibsC > 0
-    PlotMesh(Nodes,Element_Ap,0); 
-    PlotMesh(Nodes,Element_IS,0); 
-end
-PlotMesh(Nodes,Element_FSp,0); 
-title('Mesh: wing internal structure')
-view([0, 89])
-
-figure
-offset = 0.2;
-PlotMesh(Nodes + repmat([0 offset*0 0], length(Nodes), 1),Element_Sp,0); 
-PlotMesh(Nodes + repmat([0 offset*2 0], length(Nodes), 1),Element_SPARp,0); 
-PlotMesh(Nodes + repmat([0 offset*2 0], length(Nodes), 1),Element_RRp,0); 
-if wingDesign.nRibsC > 0
-    PlotMesh(Nodes + repmat([0 offset*2 0], length(Nodes), 1),Element_Ap,0); 
-    PlotMesh(Nodes + repmat([0 offset*2 0], length(Nodes), 1),Element_IS,0); 
-end
-PlotMesh(Nodes + repmat([0 offset*1 0], length(Nodes), 1),Element_FSp,0); 
+set(gca, 'Projection','perspective')
+% view([142 18])
+% view([165 49])
+view([68 11])
+set(gca,'color','w')
 title('Mesh: flexible wing')
-
 
 
 
