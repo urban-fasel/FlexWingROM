@@ -1,21 +1,12 @@
-function results = runUnsteadyFSItestcases(paramFSI)
+function results = runUnsteadyFSItestcases(paramFSI,simUnsteadyParam)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %% run FSI with unsteady panel method
 %
 
-simID = 'test_sim_us';      % simulation name, used to save and load data
-
+simID = 'TEST_UNSTEADY';      % simulation name, used to save and load data
 paramFSI.aeroOnly = 0;      % run aerodynamics only (no wing deformation): false for FSI
-
-simUnsteadyParam.V = 30;    % flight velocity
-simUnsteadyParam.alpha = 6; % angle of attack
-
-simUnsteadyParam.time = 3.0;        % length of the simulation
-simUnsteadyParam.dT = 0.006;        % timestep
-simUnsteadyParam.iTest = round(simUnsteadyParam.time/simUnsteadyParam.dT); % total size of the simulated trajectory  
-simUnsteadyParam.timeInit = 1.5;    % length of the initialization simulation
 
 % FE-solver: Newark method parameters
 gammaN = 1/2;
@@ -32,7 +23,7 @@ paramFSI.NM.b5 = betaN*simUnsteadyParam.dT^2;
 %% initialize FSI
 
 % run or load initialization of unsteady simulation: initializes the wake. FSI is then restarted from the initialized wake
-initializeUnsteadySim = paramFSI.generateNewData; % true will run initialization
+initializeUnsteadySim = paramFSI.initializeFSI; % true will run initialization
 
 if initializeUnsteadySim
     paramFSI.inputCreate.restartIN = [];
@@ -47,8 +38,6 @@ end
 %% run FSI
 
 % set inputs 
-simUnsteadyParam.k = 0.2;               % Reduced frequency (angle of attack)
-simUnsteadyParam.deltaAlpha = 2*pi/180; % Amplitude angle of attack
 simInput = set_input_unsteadyFSI(paramFSI,simUnsteadyParam); % define FSI inputs
 
 runSim = paramFSI.generateNewData; % run simulations or load results 
@@ -72,5 +61,8 @@ if paramFSI.plt
     plotUnsteadyFSI(simOutUnsteady,simUnsteadyParam)
 end
 
-
+% animation
+if paramFSI.createAnimation 
+    animateUnsteadyFSI(simInput,simUnsteadyParam)
+end
 
