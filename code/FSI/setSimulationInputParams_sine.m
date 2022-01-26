@@ -4,7 +4,6 @@ paramFSI.inputCreate.alphaWing = simInput.alpha;
 VelocityROM = min(simInput.VelocityROM);
 
 paramFSI.firstIt = 0;
-paramFSI.cutWakeAt = findCutPositionWake(paramFSI.wingParams,paramFSI.viscPre,paramFSI.dT);
 
 simInput.paramFSI = paramFSI;
 
