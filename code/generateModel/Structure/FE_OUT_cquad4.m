@@ -1,5 +1,12 @@
 function meshOut = FE_OUT_cquad4(EID, PID, G1, G2, G3, G4)
 
+%%
+%
+%  By Giulio Molinari
+%
+%  Modified by Urban Fasel
+%
+%
 % EID		Element identification number. (0 < Integer < 100,000,000)
 % PID		Property identification number of a PSHELL, PCOMP, PCOMPG or PLPLANE
 %			entry. (Integer > 0; Default = EID)
@@ -10,7 +17,7 @@ function meshOut = FE_OUT_cquad4(EID, PID, G1, G2, G3, G4)
 nel = numel(EID);
 if (numel(PID) > 1)
 	if (numel(PID) ~= nel)
-		error('NAST_OUT_cquad4:VectorSizes', 'Inconsistent number of elements in PID with respect to element IDs.');
+		error('FE_OUT_cquad4:VectorSizes', 'Inconsistent number of elements in PID with respect to element IDs.');
 	end
 else
 	PID = repmat(PID,nel,1);
