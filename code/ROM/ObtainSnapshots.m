@@ -31,9 +31,6 @@ simOut.cRoll = zeros(iTestT,1); % roll coefficient
 simOut.cYaw = zeros(iTestT,1); % yaw coefficient
 simOut.cPitch = zeros(iTestT,1); % pitch coefficient
 
-% Position to cut the wake: the wake is truncated after a certain distance
-paramFSI.cutWakeAt = findCutPositionWake(paramFSI.wingParams,paramFSI.viscPre,dT);
-
 
 %% Initialise FSI
 
