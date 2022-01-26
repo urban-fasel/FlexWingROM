@@ -44,7 +44,7 @@ legend({'aDMDc','full'},'Interpreter','Latex','Fontsize',fontsize2);
 xlabel('time','Interpreter','Latex','Fontsize',fontsize2);
 ylabel('aDMDc bending mode','Interpreter','Latex','Fontsize',fontsize2);
 
-title(sprintf('b-mode rank=%d aDMDc model',rank))
+title(sprintf('Bending mode: rank=%d aDMDc model',rank),'Interpreter','Latex','Fontsize',fontsize2)
 
 
 figure
@@ -58,7 +58,7 @@ legend({'aIODMDc','full'},'Interpreter','Latex','Fontsize',fontsize2);
 xlabel('time','Interpreter','Latex','Fontsize',fontsize2);
 ylabel('aDMDc cLift','Interpreter','Latex','Fontsize',fontsize2);
 
-title(sprintf('cL rank=%d aDMDc model',rank))
+title(sprintf('cL rank=%d aDMDc model',rank),'Interpreter','Latex','Fontsize',fontsize2)
 
 
 %% aIODMD
@@ -77,7 +77,7 @@ legend({'aIODMDc','full'},'Interpreter','Latex','Fontsize',fontsize2);
 xlabel('time','Interpreter','Latex','Fontsize',fontsize2);
 ylabel('aIODMDc bending mode','Interpreter','Latex','Fontsize',fontsize2);
 
-title(sprintf('b-mode rank=%d aIODMDc model',rank))
+title(sprintf('Bending mode: rank=%d aIODMDc model',rank),'Interpreter','Latex','Fontsize',fontsize2)
 
 
 figure
@@ -92,7 +92,7 @@ legend({'aIODMDc','full'},'Interpreter','Latex','Fontsize',fontsize2);
 xlabel('time','Interpreter','Latex','Fontsize',fontsize2);
 ylabel('aIODMDc cLift','Interpreter','Latex','Fontsize',fontsize2);
 
-title(sprintf('cL rank=%d aIODMDc model',rank))
+title(sprintf('cL rank=%d aIODMDc model',rank),'Interpreter','Latex','Fontsize',fontsize2)
 
 
 
@@ -109,11 +109,11 @@ plot(timeP,simOutFULL.bendingModeAmplitude/BMnorm,'r--');
 grid on;
 
 set(gca,'Fontsize',fontsize,'TickLabelInterpreter', 'latex');
-legend({'BMD','full'},'Interpreter','Latex','Fontsize',fontsize2);
+legend({'BMD','full'},'Interpreter','Latex','Fontsize',fontsize2,'Location','Northwest');
 xlabel('time','Interpreter','Latex','Fontsize',fontsize2);
 ylabel('BMD bending mode','Interpreter','Latex','Fontsize',fontsize2);
 
-title(sprintf('b-mode rank=%d BMD model',rank))
+title(sprintf('Bending mode: rank=%d BMD model',rank),'Interpreter','Latex','Fontsize',fontsize2)
 
 
 figure
@@ -128,5 +128,5 @@ legend({'BMD','full'},'Interpreter','Latex','Fontsize',fontsize2);
 xlabel('time','Interpreter','Latex','Fontsize',fontsize2);
 ylabel('BMD cLift','Interpreter','Latex','Fontsize',fontsize2);
 
-title(sprintf('cL rank=%d BMD model',rank))
+title(sprintf('cL rank=%d BMD model',rank),'Interpreter','Latex','Fontsize',fontsize2)
 
