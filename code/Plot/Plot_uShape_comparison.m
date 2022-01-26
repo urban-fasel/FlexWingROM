@@ -113,4 +113,5 @@ set(gca,'Fontsize',fontsize,'TickLabelInterpreter', 'latex');
 legend({'BMD','IOROM','aDMDc'},'Interpreter','Latex','Fontsize',fontsize2);
 xlabel('Model rank','Interpreter','Latex','Fontsize',fontsize2);
 
+sgtitle('Model errors over rank','Interpreter','Latex','Fontsize',fontsize2)
 
