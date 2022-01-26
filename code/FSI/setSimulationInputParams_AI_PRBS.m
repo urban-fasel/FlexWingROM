@@ -2,7 +2,6 @@ function [simInput,iTest,time] = setSimulationInputParams_AI_PRBS(paramFSI,simIn
 
 paramFSI.inputCreate.alphaWing = simInput.alpha;
 paramFSI.firstIt = 0;
-paramFSI.cutWakeAt = findCutPositionWake(paramFSI.wingParams,paramFSI.viscPre,paramFSI.dT);
 
 simInput.paramFSI = paramFSI;
 
