@@ -407,13 +407,13 @@ CZ = sum(dZ,1)./sum(S(1:end-1,:),1)/q*2;
 cLdistr_val = CZ*cos(alpha)-CX*sin(alpha);
 cLdistr_val = cLdistr_val';
 
-if simSteadyParam.doPlot
-    figure('name', sprintf('Spanwise lift distribution from panel method analysis, it. %d', FSI_curIT))
-    plot(cLdistr_yPos, cLdistr_val);
-    xlabel('y')
-    ylabel('c_L')
-    title('Spanwise lift distribution from panel method analysis')
-end
+% if simSteadyParam.doPlot
+%     figure('name', sprintf('Spanwise lift distribution from panel method analysis, it. %d', FSI_curIT))
+%     plot(cLdistr_yPos, cLdistr_val);
+%     xlabel('y')
+%     ylabel('c_L')
+%     title('Spanwise lift distribution from panel method analysis')
+% end
 
 cLdistr_val_interp = interp1(cLdistr_yPos, cLdistr_val, y_segMidpoint, 'linear', 'extrap');		
 K_alpha_ind_ELLT = paramFSI.K_alpha_ind_ELLT;
