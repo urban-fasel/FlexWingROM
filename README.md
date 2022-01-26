@@ -14,7 +14,7 @@ The different methods are introduced in the arXiv paper Fasel et al. (2021) -> l
  	* [Parametrized wing model generator and fluid structure interaction solver](#parametrized-wing-model-generator-and-fluid-structure-interaction-solver)
  	* [FSI test cases and comparisons](#fsi-test-cases-and-comparisons)
  	* [Data driven (parameter varying) reduced order models](#data-driven-parameter-varying-reduced-order-models)
-* [References](#the-code-is-mainly-based-on-the-following-publications)
+* [References](#references)
 
 
 ## How to run the code
@@ -28,28 +28,26 @@ Generates a wing (e.g. NACA0012 or NACA6418, morphing or non-morphing), runs dif
 
 &nbsp;  
 
-Two different flexible wings are used as examples, shown in the figure below. On the left, a NACA6418 morphing wing (five compliant ribs on each side), and on the right, a NACA0012 non-morphing wing (no compliant ribs). 
+### Tutorials
+
+Two different flexible wings are used in the tutorials, shown in the figure below. On the left, a NACA6418 morphing wing (five compliant ribs on each side), and on the right, a NACA0012 non-morphing wing (no compliant ribs). 
 
 ![Flexible wings](/docs/FlexWing-ROM_WingExamples.png)
 
-&nbsp;  
+* [example1_NACA0012_FSI_modal_vs_displacement.m](/example1_NACA0012_FSI_modal_vs_displacement.m)   
+	* Comparing a modal vs. displacement FE-model FSI (on a NACA0012).
 
-### Tutorials
-
-[example1_NACA0012_FSI_modal_vs_displacement.m](/example1_NACA0012_FSI_modal_vs_displacement.m)   
-Comparing a modal vs. displacement FE-model FSI (on a NACA0012).
-
-[example2_NACA6418_unsteadyFSI.m](/example2_NACA6418_unsteadyFSI.m)  
-Runs an unsteady panel method FSI (on a NACA6418) and animates the wake and wing displacements. The animation shows sinusoidal pitching (left) and morphing (right)
+* [example2_NACA6418_unsteadyFSI.m](/example2_NACA6418_unsteadyFSI.m)  
+	* Runs an unsteady panel method FSI (on a NACA6418) and animates the wake and wing displacements. The animation shows sinusoidal pitching (left) and morphing (right)
 
 ![FlexWing-ROM_NACA6418_animation.gif](/docs/FlexWing-ROM_NACA6418_animation.gif) 
 
 
-[example3_NACA0012_unsteadyPM_vs_Theodorsen.m](/example3_NACA0012_unsteadyPM_vs_Theodorsen.m)   
-Comparing an unsteady panel method (on a NACA0012) with Theodorsen's function.
+* [example3_NACA0012_unsteadyPM_vs_Theodorsen.m](/example3_NACA0012_unsteadyPM_vs_Theodorsen.m)   
+	* Comparing an unsteady panel method (on a NACA0012) with Theodorsen's function.
 
-[example4_NACA6418_ROM.m](/example4_NACA6418_ROM.m)  
-Comparing three data-driven reduced-order models using a NACA6412 morphing wing.
+* [example4_NACA6418_ROM.m](/example4_NACA6418_ROM.m)  
+	* Comparing three data-driven reduced-order models using a NACA6412 morphing wing.
 
 
 ## What you can do with this code
@@ -90,7 +88,7 @@ The FSI solver is used to generate synthetic impulse response data sets that are
 Most importantly, the model order reduction methods can be used with other fluid or fluid structure data sets (both numerical and experimental), by loading any external impulse response data. Therefore, the code should be widely applicable and useful for generating accurate and efficient reduced order models.
 
 
-## The code is mainly based on the following publications
+## References
 
 The code is mainly based on the following publications:
  
