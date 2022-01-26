@@ -21,7 +21,7 @@ The different methods are introduced in the arXiv paper Fasel et al. (2021) -> l
 
 ### Main script
 [MAIN.m](/MAIN.m)  
-Generates a wing (e.g. NACA0012 or NACA6418, morphing or non-morphing), runs different test cases, and generates and compares reduced-order models.  
+Generates a wing model (e.g. NACA0012 or NACA6418, morphing or non-morphing), runs different FSI test cases, and generates and compares reduced-order models.  
 
 
 ![FlexWing-ROM_CodeStructure](/docs/FlexWing-ROM_CodeStructure.png)  
