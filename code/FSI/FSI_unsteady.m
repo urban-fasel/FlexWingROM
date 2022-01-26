@@ -712,6 +712,25 @@ if 0
     axis equal
 end
 
+%% Here we save the wing cp, deformation, and wake for visualization
+if paramFSI.createAnimation
+    cxI=cx(1:N,1:M);cyI=cy(1:N,1:M);czI=cz(1:N,1:M);   
+    cpI = scatteredInterpolant(cxI(:),cyI(:),czI(:),cp(:));
+    xI=x(1:N+1,1:M+1);yI=y(1:N+1,1:M+1);zI=z(1:N+1,1:M+1);   
+    cpW = cpI(xI(:),yI(:),zI(:));
+    cOut=[x(:);y(:);z(:);cpW];
+    
+    fid = fopen(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Animation',filesep,paramFSI.animationName,filesep,'Animation.csv'), 'a');
+    if fid == -1
+        mkdir(strcat(pwd,filesep,'data'));
+        mkdir(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Animation',filesep,paramFSI.animationName));
+        fid = fopen(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,...
+            'Animation',filesep,paramFSI.animationName,filesep,'Animation.csv'), 'a');
+    end
+    fprintf(fid, strcat('%e',repmat(', %e',1,length(cOut)-1),'\n'),cOut');
+    fclose(fid);
+end
+
 
 %% Here we save the snapshot of the state in order to use DMD
 if createROM
