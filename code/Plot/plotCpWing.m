@@ -3,7 +3,7 @@ function plotCpWing(b,simSteadyParam,yMesh_loop,analysisParams,aer_x,aer_y,aer_z
 ScaleFactor = 1;%10; % scale windows to save in better quality (semi-transparent matlab plots can't be saved as vectorgraphics)
 dP = 0.001;
 
-figM = figure('Position',[20 20 640*ScaleFactor 360*ScaleFactor],'Renderer','painters','name', sprintf('FSI wing deformation, V = %dm/s, alpha = %d deg',simSteadyParam.V,simSteadyParam.alpha));
+figM = figure('Position',[20 20 640*ScaleFactor 360*ScaleFactor],'Renderer','painters','name', sprintf('FSI wing cp, V = %dm/s, alpha = %d deg',simSteadyParam.V,simSteadyParam.alpha));
 
 hold on
 
