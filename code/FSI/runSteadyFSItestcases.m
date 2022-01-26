@@ -10,7 +10,7 @@ paramFSI.aeroOnly = 0;      % run aerodynamics only (no wing deformation): false
 % run steady FSI test case: comparison of full stiffness matrix with modal approach
 simSteadyParam.V = 30;              % flight velocity
 simSteadyParam.alpha = 6;           % angle of attack
-simSteadyParam.forceACTinp.L = 1;   % actuator force unsymmetric actuation (roll actuation), [-1 1]
+simSteadyParam.forceACTinp.L = 0;   % actuator force unsymmetric actuation (roll actuation), [-1 1]
 simSteadyParam.forceACTinp.fs = 0;  % actuator force symmetric actuation (cL control), [-1 1]
 
 simSteadyParam.doPlot = paramFSI.plt; % plot deformed wing
@@ -28,5 +28,4 @@ results.rollError_steady = abs(FSI_steady_out.cRoll - FSI_steady_fullK_out.cRoll
 % save outputs
 results.FSI_steady_out = FSI_steady_out;
 results.FSI_steady_fullK_out = FSI_steady_fullK_out;
-
 
