@@ -52,8 +52,8 @@ FlexWing-ROM is a matlab framework applying these three recent data-driven reduc
 
 The first feature of FlexWing-ROM is a fully parametrized wing model generator that creates a finite element structural model and an unsteady panel method aerodynamic model [@molinari2014aero]. Wing design parameters such as airfoil shape, wing aspect ratio, wing spar and rib design, and material properties can be varied to test different wing designs and compare their performance. In figure \autoref{fig:fig3}, two different examples are shown for a camber morphing NACA6418 wing and a flexible NACA0012 wing. The finite element model generator is using yetAnotherFECode [@jain2020yet] to obtain the mass, damping, and stiffness matrix used in the FSI solver. Flexible wings of interest are mainly made of thin composite plates, therefore, shell elements are used to model the structure [@tiso2006finite]. The aerodynamic model is based on a 3D panel method, with a combination of doublets and sources, and accounts for unsteady aerodynamic effects [@katz2001low].
 
-
 ![ Two different flexible wings are provided in the tutorials: (left) exploded view of a camber morphing NACA6418 wing with five compliant ribs on each side, (right) a flexible NACA0012 wing with only non-morphing stiff ribs.\label{fig:fig3}](Figure3.pdf)
+
 
 ## Fluid-structure interaction solver
 
