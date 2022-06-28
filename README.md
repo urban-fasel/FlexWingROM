@@ -10,6 +10,7 @@ The different methods are introduced in the arXiv paper Fasel et al. (2021) -> l
 * [How to run the code](#how-to-run-the-code)
  	* [Main script](#main-script)
 	* [Tutorials](#tutorials)
+	* [Dependencies](#dependencies)
 * [What you can do with this code](#what-you-can-do-with-this-code)
  	* [Parametrized wing model generator and fluid structure interaction solver](#parametrized-wing-model-generator-and-fluid-structure-interaction-solver)
  	* [FSI test cases and comparisons](#fsi-test-cases-and-comparisons)
@@ -48,6 +49,16 @@ Two different flexible wings are used in the tutorials, shown in the figure belo
 
 * [example4_NACA6418_ROM.m](/example4_NACA6418_ROM.m)  
 	* Comparing three data-driven reduced-order models using a NACA6412 morphing wing.
+
+
+### Dependencies
+
+The following matlab toolboxes are required to run the code:
+
+* Control System Toolbox
+* System Identification Toolbox
+* Statistics and Machine Learning Toolbox
+* Parallel Computing Toolbox
 
 
 ## What you can do with this code
