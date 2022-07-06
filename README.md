@@ -15,6 +15,9 @@ The different methods are introduced in the arXiv paper Fasel et al. (2021) -> l
  	* [Parametrized wing model generator and fluid structure interaction solver](#parametrized-wing-model-generator-and-fluid-structure-interaction-solver)
  	* [FSI test cases and comparisons](#fsi-test-cases-and-comparisons)
  	* [Data driven (parameter varying) reduced order models](#data-driven-parameter-varying-reduced-order-models)
+* [Community guidelines](#community-guidelines)
+	* [Contribute to the software](#contribute-to-the-software)
+	* [Report problems with the software or seek support](#report-problems-with-the-software-or-seek-support)
 * [References](#references)
 
 
