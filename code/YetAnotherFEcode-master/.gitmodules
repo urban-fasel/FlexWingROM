@@ -1,3 +1,0 @@
-[submodule "external/tensor_toolbox"]
-	path = external/tensor_toolbox
-	url = https://gitlab.com/tensors/tensor_toolbox.git

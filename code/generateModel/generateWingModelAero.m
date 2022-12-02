@@ -305,14 +305,16 @@ HSV = [	(-c_HSV(:)*0.25)'; ...
 CP = [	-c(1:end)*0.75; ...
 		.5*(y_segLimit(1:end-1) + y_segLimit(2:end)); ...
 		zeros(1,numel(y_segLimit)-1)];
-HSVN = crossC((HSV(:,2:end) - HSV(:,1:end-1)), repmat([-1; 0; 0], 1, length(y_segMidpoint)));
+% HSVN = crossC((HSV(:,2:end) - HSV(:,1:end-1)), repmat([-1; 0; 0], 1, length(y_segMidpoint)));
+HSVN = cross((HSV(:,2:end) - HSV(:,1:end-1)), repmat([-1; 0; 0], 1, length(y_segMidpoint)));
 HSVN = HSVN./repmat(colnorm(HSVN, 2), 3, 1);
 
 K_alpha_ind_out = zeros(n_seg);
 
 for i = 1:n_seg
 	for j = 1:n_seg/2
-		K_alpha_ind_out(i,j) = dotC(vortex_semiinf(CP(:,i), HSV(:,j), [-1; 0; 0]) - vortex_semiinf(CP(:,i), HSV(:,j+1), [-1; 0; 0]), HSVN(:,i));
+% 		K_alpha_ind_out(i,j) = dotC(vortex_semiinf(CP(:,i), HSV(:,j), [-1; 0; 0]) - vortex_semiinf(CP(:,i), HSV(:,j+1), [-1; 0; 0]), HSVN(:,i));
+		K_alpha_ind_out(i,j) = dot(vortex_semiinf(CP(:,i), HSV(:,j), [-1; 0; 0]) - vortex_semiinf(CP(:,i), HSV(:,j+1), [-1; 0; 0]), HSVN(:,i));
 		% NB: matrix is *not* symmetric around principal diagonal!
 	end
 	K_alpha_ind_out(end-i+1,:) = fliplr(K_alpha_ind_out(i,:));
