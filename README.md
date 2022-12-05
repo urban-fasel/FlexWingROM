@@ -63,6 +63,8 @@ The following matlab toolboxes are required to run the code:
 * Statistics and Machine Learning Toolbox
 * Parallel Computing Toolbox
 
+XFOIL is used to calculate the viscous drag and maximum lift coefficient of the airfoil. The XFOIL version only runs on Windows. In case the code is run on Linux, the airfoil coefficients are loaded from precalculated tables for NACA0012 and NACA6418.
+
 
 ## What you can do with this code
 
