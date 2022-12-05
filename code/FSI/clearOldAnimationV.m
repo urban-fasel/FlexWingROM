@@ -1,6 +1,6 @@
 function clearOldAnimationV(paramFSI)
 home = pwd;
-sure = input(['sure to delete the existing ' paramFSI.animationName ' FSI animation data ?']);
+sure = input(['sure to delete the existing ' paramFSI.animationName ' FSI animation data ? (1=yes, 0=no)']);
 if sure==0
     error('Stop');
 end
