@@ -96,7 +96,7 @@ set(gca,'color','w')
 folderName = strcat(pwd,filesep,'data',filesep,simInput.paramFSI.wingParams.airfoil,filesep,'Animation',filesep,simInput.paramFSI.animationName,filesep);
 figureName = [simInput.paramFSI.wingParams.airfoil '_animation'];
 % saveas(figWakef,[folderName figureName],'epsc')
-saveas(figWakef,[folderName figureName],'meta')
+% saveas(figWakef,[folderName figureName],'meta')
 saveas(figWakef,[folderName figureName],'fig')
 
 
