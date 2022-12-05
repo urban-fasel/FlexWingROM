@@ -2,7 +2,7 @@
 
 clear; close all; clc
 
-tol = 1e-3;
+tol = 1e-8;
 
 addpath(genpath('code'))
 
@@ -60,8 +60,8 @@ catch ME
 end
 
 % check if correct wing model is generated
-assert(mean(mean(abs(wingModelStructure.M_MODES - wingModel_true.M_MODES))) < tol,'Error in generating wing structure model, check generateWingModelStructure')
-assert(mean(mean(abs(wingModelAero.viscPre.cl - wingModel_true.viscPre.cl))) < tol,'Error in generating wing aero model, check generateWingModelAero')
+assert(mean(mean(abs(wingModelAero.viscPre.cl - wingModel_true.viscPre.cl))) < tol,'Error in generating wing model, check generateWingModelAero')
+assert(sum(sum(abs(wingModelAero.K_alpha_ind_ELLT - wingModel_true.K_alpha_ind_ELLT))) < tol)
 
 
 

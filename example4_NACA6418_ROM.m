@@ -16,9 +16,7 @@
 %
 %%%%%%%%%%
 
-clear all
-close all
-clc
+clear; close all; clc
 
 addpath(genpath('code'))
 
@@ -65,7 +63,7 @@ if generateWing
     paramFSI = saveParamFSI(wingDesign,simParam,wingModelStructure,wingModelAero,storeAllData);
 else
     
-    parameters = load(['data/parsim_FSI_', airfoil, '.mat']);
+    parameters = load(['data', filesep, 'parsim_FSI_', airfoil, '.mat']);
     paramFSI = parameters.paramFSI;
 end
 

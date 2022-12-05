@@ -507,14 +507,11 @@ wingModelAero.fiACT_LAMin = wingModelStructure.phi_ASET.'*forces_ACT_L;
 
 
 %% Precalculate viscous drag and maximum cL using xfoil
-% XFOIL only runs on Windows, therefore we load the data for NACA0012 and NACA6418 if the code is run on Linux
 
 if ispc
     viscPre = preCalcVisc(wingDesign.airfoil,wingDesign.chord);
 else
-    viscPreLoad = load(['data',filesep,'PrecalculateXFOIL',filesep,'viscPre_',wingDesign.airfoil,'.mat']);
-    viscPre = viscPreLoad.viscPre;
-end
+    viscPre = load(['data',filesep,'PrecalculateXFOIL',filesep,'viscPre_',wingDesign.airfoil,'.mat'])
 wingModelAero.viscPre = viscPre;
 
 
