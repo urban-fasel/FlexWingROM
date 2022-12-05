@@ -725,7 +725,9 @@ if paramFSI.createAnimation
         if ~exist(strcat(pwd,filesep,'data'), 'dir')
            mkdir(strcat(pwd,filesep,'data'));
         end
-        mkdir(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Animation',filesep,paramFSI.animationName));
+        if ~exist(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Animation',filesep,paramFSI.animationName), 'dir')
+            mkdir(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,'Animation',filesep,paramFSI.animationName));
+        end
         fid = fopen(strcat(pwd,filesep,'data',filesep,paramFSI.wingParams.airfoil,filesep,...
             'Animation',filesep,paramFSI.animationName,filesep,'Animation.csv'), 'a');
     end
