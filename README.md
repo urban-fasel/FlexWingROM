@@ -2,7 +2,7 @@
  
 The matlab codebase **FlexWing-ROM** models fluid structure interaction (FSI) of flexible wings and generates data-driven reduced order models that can be used for analysis and control.  
 
-The different methods are introduced in the arXiv paper Fasel et al. (2021) -> link will follow.
+The different methods are introduced in the JOSS paper Fasel et al. (2022) -> link will follow.
 
 ![FlexWing-ROM_OverviewFigure](/docs/FlexWing-ROM_OverviewFigure.png)  
 
